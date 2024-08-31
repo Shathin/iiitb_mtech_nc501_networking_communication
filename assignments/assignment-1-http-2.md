@@ -1,10 +1,12 @@
-# Introduction
+# HTTP/2
+
+## Introduction
 
 HTTP/2 (original named or HTTP/2.0) was developed by the HTTP Working Group of the Internet Engineering Task Force (IETF). It was derived from an experimental technology by Google called SPDY. The HTTP/2 specification was published as RFC 7540 on May 14, 2015.
 
 HTTP/2 does not modify the application semantics of HTTP in any way. All the core concepts, such as HTTP methods, status codes, URIs, and header fields, remain in place. Instead, HTTP/2 modifies how the data is formatted (framed) and transported between the client and server, both of which manage the entire process, and hides all the complexity from our applications within the new framing layer. As a result, all existing applications can be delivered without modification.
 
-# Goals
+## Goals
 
 The primary goals for HTTP/2 are to - 
 
@@ -12,9 +14,9 @@ The primary goals for HTTP/2 are to -
 2. Minimize protocol overhead via efficient compression of HTTP header fields, and,
 3. Add support for request prioritization and server push.
 
-# Features
+## Features
 
-## Streams, Messages & Frames
+### Streams, Messages & Frames
 
 We start off with a few basic terminologies related to HTTP/2
 
@@ -33,11 +35,11 @@ The relation of these terms can be summarized as follows:
 
 In short, HTTP/2 breaks down the HTTP protocol communication into an exchange of binary-encoded frames, which are then mapped to messages that belong to a particular stream, all of which are multiplexed within a single TCP connection.
 
-## HTTP/1 vs HTTP2 message
+### HTTP/1 vs HTTP2 message
 
 ![HTTP/1 vs HTTP/2](/assets/assignment-1-http-2-2.png)
 
-## Request & Response Multiplexing
+### Request & Response Multiplexing
 
 With HTTP/1.x, if the client wants to make multiple parallel requests to improve performance, then multiple TCP connections must be used. This is an inefficient use of the underlying TCP connection.
 
@@ -52,13 +54,13 @@ The ability to break down an HTTP message into independent frames, interleave th
 - Use a single connection to deliver multiple requests and responses in parallel.
 - And much more
 
-## Server Push
+### Server Push
 
 Another powerful new feature of HTTP/2 is the ability of the server to send multiple responses for a single client request. That is, in addition to the response to the original request, the server can push additional resources to the client (Figure 12-5), without the client having to request each one explicitly. The advantage of such a feature is latency is reduced because the server knows what resources are needed by the client and it pushes it along with the other resources.
 
 ![Server Push](/assets/assignment-1-http-2-4.png)
 
-## Header Compression
+### Header Compression
 
 Each HTTP transfer carries a set of headers that describe the transferred resource and its properties. In HTTP/1.x, this metadata is always sent as plain text and adds anywhere from 500–800 bytes of overhead per transfer, and sometimes kilobytes more if HTTP cookies are being used. (See [Measuring and Controlling Protocol Overhead](https://hpbn.co/http1x/#measuring-and-controlling-protocol-overhead)) To reduce this overhead and improve performance, HTTP/2 compresses request and response header metadata using the HPACK compression format that uses two simple but powerful techniques:
 
