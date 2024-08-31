@@ -21,7 +21,7 @@ QUIC aims to be nearly equivalent to a TCP connection but with much-reduced late
 - The first change is to greatly reduce overhead during connection setup. As most HTTP connections will demand TLS, QUIC makes the exchange of setup keys and supported protocols part of the initial handshake process. (Explained in the next section)
 - QUIC uses UDP as its basis, which does not include loss recovery. Instead, each QUIC stream is separately flow controlled and lost data retransmitted at the level of QUIC, not UDP. This means that if an error occurs in one stream the protocol stack can continue servicing other streams independently.
 
-![](/assets/assignment-1-http-3-1.png)
+![](/assets/assignment-2-http-3-1.png)
 
 The above diagram shows the comparison between HTTP/2 over TCP and HTTP/2 over QUIC (known as HTTP/3). 
 
@@ -29,7 +29,7 @@ The above diagram shows the comparison between HTTP/2 over TCP and HTTP/2 over Q
 
 QUIC relies on a combined cryptographic and transport handshake for setting up a secure transport connection. On a successful handshake, a client caches information about the origin (An origin is identified by the set of URI scheme, hostname, and port number). On subsequent connections to the same origin, the client can establish an encrypted connection with no additional round trips, and the data can be sent immediately following the client handshake packet without waiting for a reply from the server.
 
-![](/assets/assignment-1-http-3-2.png)
+![](/assets/assignment-2-http-3-2.png)
 
 Initial handshake: Initially, the client has no information about the server and so, before a handshake can be attempted, the client sends an inchoate client hello (CHLO) message to the server to elicit a reject (REJ) message. The REJ message contains: 
 
