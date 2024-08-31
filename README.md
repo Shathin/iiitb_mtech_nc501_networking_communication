@@ -31,7 +31,7 @@ Please note that the content might not be complete as it was created during my t
    6. [Latency Derivation for TCP](/assignments/assignment-latency-tcp.md)
  
 
-This repository also contains my [assignment](/assignment/) submitted as part of the course. 
+This repository also contains my assignments submitted as part of the course. 
 Please do not copy the assignment, and instead only use it as a reference in case you are stuck. 
 
 -----
