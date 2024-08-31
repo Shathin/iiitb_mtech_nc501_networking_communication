@@ -1,0 +1,5 @@
+#define SERVER_IP_TCP "127.0.0.4"
+#define SERVER_PORT_TCP 8080
+
+#define SERVER_IP_UDP "127.0.0.5"
+#define SERVER_PORT_UDP 9090
